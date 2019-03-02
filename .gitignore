@@ -1,3 +1,4 @@
 /images/logo/*.xd
 /images/logo/*.ai
 /.vscode
+/node_modules

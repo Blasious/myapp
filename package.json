@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Blasious/myapp/issues"
   },
-  "homepage": "https://Blasious.github.io/Blasious/myapp"
+  "homepage": "https://Blasious.github.io/Blasious/myapp",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
