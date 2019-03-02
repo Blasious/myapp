@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="My personal website">
+    <meta name="keywords" content="Pozsár Balázs, Pozsár, Web developer, Sitebuilder, Web developing, Freelancer, Webfejlesztő, Webprogramozó">
+    <meta name="author" content="Pozsár Balázs">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pozsár Balázs's Resume</title>
+    <link rel="shortcut icon" href="images/logo/logo-black.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display+SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body onload="showLoader()">
+    <div id="loader-container">
+        <div id="loader">
+            <div class="item">
+                <img src="images/logo/logo-webber_inverse.png" />
+            </div>
+            <div class="circle" style="animation-delay: 0s"></div>
+            <div class="circle" style="animation-delay: 1s"></div>
+            <div class="circle" style="animation-delay: 2s"></div>
+            <div class="circle" style="animation-delay: 3s"></div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <header>
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+
+            <nav class="menu">
+                <div class="menu-brand">
+                    <div class="menu-portrait-wrp">
+                        <div class="menu-portrait"></div>
+                    </div>
+                </div>
+
+                <ul class="menu-nav">
+                    <li class="nav-item">
+                        <span class="nav-link">Főoldal</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="nav-link">First</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="nav-link">Second</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="nav-link">Third</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="nav-link">Fourth</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="nav-link">Fifth</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="nav-link">Sixth</span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="pages">
+            <div class="page show" id="home">
+                <h1><span class="text-blue">Pozsár</span> <span class="text-yellow">Balázs</span></h1>
+
+                <div>
+                    <span class="text-type" data-wait="3000"
+                        data-words='["Web Developer","Sitebuilder","Student"]'></span>
+                </div>
+            </div>
+
+            <div class="page" id="about">
+                <div class="about"></div>
+            </div>
+            <div class="page" id="experience"></div>
+            <div class="page" id="resume"></div>
+            <div class="page" id="contact"></div>
+        </main>
+
+        <footer class="text-yellow">
+            <p>&copy; 2019 created by Pozsár Balázs</p>
+            <p>All rights reserved</p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="typeWriter.js"></script>
+
+    <script>
+        //loading animations
+        var show;
+
+        function showLoader() {
+            show = setTimeout(showPage, 7000);
+        }
+
+        function showPage() {
+            $("#loader-container").fadeOut(1000);
+            $("#wrapper").fadeIn(1000);
+
+            //calling init() 1s after wrapper loaded
+            //function init() is in typeWriter.js
+            setTimeout(() => init(true), 1000);
+        }
+    </script>
+</body>
+
+</html>

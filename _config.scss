@@ -1,0 +1,88 @@
+$blue: #0B172A;
+$brown: #463940;
+$yellow: rgb(185, 147, 20);
+$white: #FFFFFF;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, PlayFair, sans-serif;
+}
+
+body{
+    background-image: url("images/main-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: rgba($blue,0.9);
+    }
+}
+
+a{
+    color: white;
+
+    &:link{
+        color: white;
+        text-decoration: none;
+    }
+
+    &:visited{
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.text-yellow{
+    color: $yellow !important;
+}
+
+.text-blue{
+    color: $blue !important;
+}
+
+@mixin easeOut($delay: null) {
+    @if ($delay) {
+        transition: all $delay ease-out;
+    } @else {
+        transition: all 0.5s ease-out;
+    }
+
+    
+}
+
+// media query mixins
+
+@mixin screenSm{
+    @media screen and ( max-width : 500px ){
+        @content;
+    }
+}
+
+@mixin screenMd{
+    @media screen and ( max-width : 768px ){
+        @content;
+    }
+}
+
+@mixin screenLg{
+    @media screen and ( max-width : 1170px ){
+        @content;
+    }
+}
+
+@mixin screenXL{
+    @media screen and ( min-width : 1171px ){
+        @content;
+    }
+}
