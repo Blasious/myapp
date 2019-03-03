@@ -1,8 +1,0 @@
-/images/logo/*.xd
-/images/logo/*.ai
-/.vscode/
-/node_modules
-/scss
-settings.json
-package.json
-package-lock.json
