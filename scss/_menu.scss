@@ -145,6 +145,7 @@
         font-weight: 300;
         color: $white;
         text-decoration: none;
+        cursor: pointer;
         @include easeOut;
 
         &:hover{

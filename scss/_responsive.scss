@@ -1,95 +1,110 @@
 //widescreens
 
-@include screenXL{
-
+@include screenXL {
 }
 
 //desktops & laptops
 
-@include screenLg{
-    
+@include screenLg {
 }
 
 //tablets & small laptops
 
-@include screenMd{
-    //menu overlay
-    .menu{
-        .menu-brand, .menu-nav{
-            float: none;
-            width: 100%;
-            min-height: 0;
+@include screenMd {
+  //menu overlay
+  .menu {
+    .menu-brand,
+    .menu-nav {
+      float: none;
+      width: 100%;
+      min-height: 0;
 
-            &.show{
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        .menu-brand{
-            height: 25vh;
-
-            .menu-portrait-wrp{
-                width: 15vh;
-                height: 15vh;
-
-                .menu-portrait{
-                    width: calc(15vh - 4px);
-                    height: calc(15vh - 4px);
-                    top: 2px;
-                    left: 2px;
-                }
-            }
-        } 
-        
-        .menu-nav{
-            height: 75vh;
-            .nav-item > .nav-link{
-                font-size: 20px;
-            }
-        }
+      &.show {
+        transform: translate3d(0, 0, 0);
+      }
     }
 
-    //hexagons overlay
-    #wrapper{
-        .hexas{
-            .hexagon{
-                width: 100vw;
-                height: 100vw;
-            }
+    .menu-brand {
+      height: 25vh;
 
-            #hexa1{
-                h1{
-                    font-size: 3rem;
-                    margin-bottom: 1rem;
-                }
-    
-                div{
-                    height: 2rem;
-                    font-size: 2rem;
-                }
-            }
+      .menu-portrait-wrp {
+        width: 15vh;
+        height: 15vh;
+
+        .menu-portrait {
+          width: calc(15vh - 4px);
+          height: calc(15vh - 4px);
+          top: 2px;
+          left: 2px;
         }
+      }
     }
+
+    .menu-nav {
+      height: 75vh;
+      .nav-item > .nav-link {
+        font-size: 20px;
+      }
+    }
+  }
+
+  //pages overlay
+  #wrapper {
+    &::before {
+      height: 100vw;
+      width: 100vw;
+      top: calc((100vh - 100vw)/2);
+      left: 0;
+    }
+
+    &::after {
+      height: calc(100vw - 25px);
+      width: calc(100vw - 25px);
+      top: calc(((100vh - 100vw)/2) + 12.5px);
+      left: 12.5px;
+    }
+
+    .pages {
+      .page {
+        width: 100vw;
+        height: 100vw;
+
+        &.show {
+          top: calc((100vh - 100vw) / 2);
+        }
+      }
+
+      #home {
+        h1 {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        div {
+          height: 2rem;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
 }
 
 //smartphones
 
-@include screenSm{
-
-    #wrapper{
-        .hexas{
-            #hexa1{
-                h1{
-                    font-size: 2rem;
-                    margin-bottom: 1rem;
-                }
-    
-                div{
-                    height: 1rem;
-                    font-size: 1rem;
-                }
-            }
+@include screenSm {
+  #wrapper {
+    .pages {
+      #home {
+        h1 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
         }
+
+        div {
+          height: 1rem;
+          font-size: 1rem;
+        }
+      }
     }
-    
+  }
 }
