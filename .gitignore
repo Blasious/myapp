@@ -2,3 +2,4 @@
 /images/logo/*.ai
 /.vscode
 /node_modules
+*.scss
