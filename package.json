@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "description": "My site",
   "main": "main.js",
-  "homepage": "https://blasious.github.io/myapp",
+  "homepage": "https://balazspozsar.github.io/myapp",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blasious/myapp.git"
+    "url": "git+https://github.com/balazspozsar/myapp.git"
   },
   "author": "Pozsár Balázs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Blasious/myapp/issues"
+    "url": "https://github.com/balazspozsar/myapp/issues"
   },
   "dependencies": {
     "gh-pages": "^2.0.1"
