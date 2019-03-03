@@ -8,7 +8,7 @@
 }
 
 body {
-  background-image: url("images/main-bg.jpg");
+  background-image: url("../images/main-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -172,7 +172,7 @@ a:visited {
   height: 242px;
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-image: url("images/self_portrait.jpg");
+  background-image: url("../images/self_portrait.jpg");
   background-size: cover;
   background-position: 50% 0%;
 }
@@ -418,4 +418,3 @@ a:visited {
     font-size: 1rem;
   }
 }
-/*# sourceMappingURL=style.css.map */

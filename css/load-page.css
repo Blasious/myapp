@@ -25,7 +25,7 @@
 }
 
 body {
-  background-image: url("images/main-bg.jpg");
+  background-image: url("../images/main-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -166,4 +166,3 @@ a:visited {
     opacity: 0;
   }
 }
-/*# sourceMappingURL=load-page.css.map */
