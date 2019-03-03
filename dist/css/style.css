@@ -198,6 +198,7 @@ a:visited {
   font-weight: 300;
   color: #FFFFFF;
   text-decoration: none;
+  cursor: pointer;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
@@ -275,6 +276,19 @@ a:visited {
   height: 100vh;
   width: 100%;
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #wrapper .pages .page {
@@ -282,7 +296,6 @@ a:visited {
   height: 100vh;
   width: 100vh;
   top: -100%;
-  left: calc((100vw - 100vh) / 2);
   opacity: 0;
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
@@ -290,7 +303,6 @@ a:visited {
 
 #wrapper .pages .page.show {
   top: 0;
-  left: calc((100vw - 100vh) / 2);
   opacity: 1;
 }
 
@@ -366,12 +378,14 @@ a:visited {
 }
 
 @media screen and (max-width: 768px) {
-  .menu .menu-brand, .menu .menu-nav {
+  .menu .menu-brand,
+  .menu .menu-nav {
     float: none;
     width: 100%;
     min-height: 0;
   }
-  .menu .menu-brand.show, .menu .menu-nav.show {
+  .menu .menu-brand.show,
+  .menu .menu-nav.show {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
@@ -394,26 +408,41 @@ a:visited {
   .menu .menu-nav .nav-item > .nav-link {
     font-size: 20px;
   }
-  #wrapper .hexas .hexagon {
+  #wrapper::before {
+    height: 100vw;
+    width: 100vw;
+    top: calc((100vh - 100vw)/2);
+    left: 0;
+  }
+  #wrapper::after {
+    height: calc(100vw - 25px);
+    width: calc(100vw - 25px);
+    top: calc(((100vh - 100vw)/2) + 12.5px);
+    left: 12.5px;
+  }
+  #wrapper .pages .page {
     width: 100vw;
     height: 100vw;
   }
-  #wrapper .hexas #hexa1 h1 {
+  #wrapper .pages .page.show {
+    top: calc((100vh - 100vw) / 2);
+  }
+  #wrapper .pages #home h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
   }
-  #wrapper .hexas #hexa1 div {
+  #wrapper .pages #home div {
     height: 2rem;
     font-size: 2rem;
   }
 }
 
 @media screen and (max-width: 500px) {
-  #wrapper .hexas #hexa1 h1 {
+  #wrapper .pages #home h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-  #wrapper .hexas #hexa1 div {
+  #wrapper .pages #home div {
     height: 1rem;
     font-size: 1rem;
   }
