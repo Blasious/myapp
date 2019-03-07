@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="My personal website">
-    <meta name="keywords" content="Pozsár Balázs, Pozsár, Web developer, Sitebuilder, Web developing, Freelancer, Webfejlesztő, Webprogramozó">
+    <meta name="keywords"
+        content="Pozsár Balázs, Pozsár, Web developer, Sitebuilder, Web developing, Freelancer, Webfejlesztő, Webprogramozó">
     <meta name="author" content="Pozsár Balázs">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pozsár Balázs's Resume</title>
@@ -17,6 +18,44 @@
 </head>
 
 <body onload="showLoader()">
+    <header>
+        <div class="menu-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+
+        <nav class="menu">
+            <div class="menu-brand">
+                <div class="menu-portrait-wrp">
+                    <div class="menu-portrait"></div>
+                </div>
+            </div>
+
+            <ul class="menu-nav">
+                <li class="nav-item">
+                    <span class="nav-link">Home</span>
+                </li>
+
+                <li class="nav-item">
+                    <span class="nav-link">About me</span>
+                </li>
+
+                <li class="nav-item">
+                    <span class="nav-link">My work</span>
+                </li>
+
+                <li class="nav-item">
+                    <span class="nav-link">Resume</span>
+                </li>
+
+                <li class="nav-item">
+                    <span class="nav-link">Contact</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <div id="loader-container">
         <div id="loader">
             <div class="item">
@@ -31,52 +70,6 @@
 
     <div id="wrapper">
 
-        <header>
-            <div class="menu-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-                <div class="btn-line"></div>
-            </div>
-
-            <nav class="menu">
-                <div class="menu-brand">
-                    <div class="menu-portrait-wrp">
-                        <div class="menu-portrait"></div>
-                    </div>
-                </div>
-
-                <ul class="menu-nav">
-                    <li class="nav-item">
-                        <span class="nav-link">Főoldal</span>
-                    </li>
-
-                    <li class="nav-item">
-                        <span class="nav-link">First</span>
-                    </li>
-
-                    <li class="nav-item">
-                        <span class="nav-link">Second</span>
-                    </li>
-
-                    <li class="nav-item">
-                        <span class="nav-link">Third</span>
-                    </li>
-
-                    <li class="nav-item">
-                        <span class="nav-link">Fourth</span>
-                    </li>
-
-                    <li class="nav-item">
-                        <span class="nav-link">Fifth</span>
-                    </li>
-
-                    <li class="nav-item">
-                        <span class="nav-link">Sixth</span>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
         <main class="pages">
             <div class="page show" id="home">
                 <h1><span class="text-blue">Pozsár</span> <span class="text-yellow">Balázs</span></h1>
@@ -85,19 +78,82 @@
                     <span class="text-type" data-wait="3000"
                         data-words='["Web Developer","Sitebuilder","Student"]'></span>
                 </div>
+
+                <footer class="text-yellow">
+                    <p>Copyright &copy; 2019</p>
+                    <p>Created by Pozsár Balázs</p>
+                </footer>
             </div>
 
             <div class="page" id="about">
-                <div class="about"></div>
-            </div>
-            <div class="page" id="experience"></div>
-            <div class="page" id="resume"></div>
-            <div class="page" id="contact"></div>
-        </main>
+                <h1>About <span class="text-yellow">Me</span></h1>
 
-        <footer class="text-yellow">
-            <p>&copy; 2019 created by Pozsár Balázs</p>
-        </footer>
+                <h2>Let me introduce myself...</h2>
+
+                <div class="about-infos">
+                    <div class="about-portrait-wrp">
+                        <div class="about-portrait"></div>
+                    </div>
+
+                    <div class="bio">
+                        <h3 class="text-yellow">BIO</h3>
+                        <p>“Hi, I'm a junior webdeveloper. John specializes in Human Resource technologies and
+                            regularly attends national training sessions to showcase new HR tech trends, such as
+                            self-service, wellness apps, and people analytics tools. A strong believer in the power of
+                            positive thinking in the workplace, John regularly develops internal wellness campaigns to
+                            assist employees with effective mental health techniques. John enjoys a good Netflix binge
+                            but can also be found on long bike rides on hilly country roads.”</p>
+                    </div>
+
+                    <div class="schools school-1">
+                        <h3 class="text-yellow">School1</h3>
+                        <h6>Degree</h6>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis necessitatibus alias quis illo
+                            non
+                            voluptate soluta maxime earum perferendis accusamus?</p>
+                    </div>
+
+                    <div class="schools school-2">
+                        <h3 class="text-yellow">School2</h3>
+                        <h6>Degree</h6>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis necessitatibus alias quis illo
+                            non
+                            voluptate soluta maxime earum perferendis accusamus?</p>
+                    </div>
+
+                    <div class="schools school-3">
+                        <h3 class="text-yellow">School3</h3>
+                        <h6>Degree</h6>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis necessitatibus alias quis illo
+                            non
+                            voluptate soluta maxime earum perferendis accusamus?</p>
+                    </div>
+                </div>
+
+                <footer class="text-yellow">
+                    <p>Copyright &copy; 2019</p>
+                    <p>Created by Pozsár Balázs</p>
+                </footer>
+            </div>
+            <div class="page" id="mywork">
+                <footer class="text-yellow">
+                    <p>Copyright &copy; 2019</p>
+                    <p>Created by Pozsár Balázs</p>
+                </footer>
+            </div>
+            <div class="page" id="resume">
+                <footer class="text-yellow">
+                    <p>Copyright &copy; 2019</p>
+                    <p>Created by Pozsár Balázs</p>
+                </footer>
+            </div>
+            <div class="page" id="contact">
+                <footer class="text-yellow">
+                    <p>Copyright &copy; 2019</p>
+                    <p>Created by Pozsár Balázs</p>
+                </footer>
+            </div>
+        </main>
     </div>
 
     <script type="text/javascript" src="js/main.js"></script>
