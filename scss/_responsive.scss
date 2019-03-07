@@ -51,27 +51,23 @@
   //pages overlay
   #wrapper {
     &::before {
-      height: 100vw;
-      width: 100vw;
-      top: calc((100vh - 100vw)/2);
-      left: 0;
-    }
-
-    &::after {
-      height: calc(100vw - 25px);
-      width: calc(100vw - 25px);
-      top: calc(((100vh - 100vw)/2) + 12.5px);
-      left: 12.5px;
+      height: 80vw;
+      width: 80vw;
+      top: calc((100vh - 80vw)/2);
+      left: 10vw;
     }
 
     .pages {
-      .page {
-        width: 100vw;
-        height: 100vw;
 
-        &.show {
-          top: calc((100vh - 100vw) / 2);
-        }
+      &::before {
+        height: calc(80vw - 25px);
+        width: calc(80vw - 25px);
+        top: calc(((100vh - 80vw)/2) + 12.5px);
+        left: calc(10vw + 12.5px);
+      }
+
+      .page {
+        width: 100%;
       }
 
       #home {
@@ -85,6 +81,19 @@
           font-size: 2rem;
         }
       }
+
+      #about{
+        .about-infos{
+          grid-template-areas: 
+            'bioimage'
+            'bio'
+            'school1'
+            'school2'
+            'school3';
+            
+          grid-template-columns: 1fr;
+        }
+      }
     }
   }
 }
@@ -92,7 +101,7 @@
 //smartphones
 
 @include screenSm {
-  #wrapper {
+  /*#wrapper {
     .pages {
       #home {
         h1 {
@@ -106,5 +115,5 @@
         }
       }
     }
-  }
+  }*/
 }

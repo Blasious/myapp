@@ -15,14 +15,13 @@ body {
   background-position: center center;
 }
 
-body::after {
+body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background-color: rgba(11, 23, 42, 0.9);
 }
 
@@ -45,11 +44,11 @@ a:visited {
 }
 
 .text-blue {
-  color: #0B172A !important;
+  color: #000102 !important;
 }
 
 .menu-btn {
-  position: absolute;
+  position: fixed;
   z-index: 4;
   right: 35px;
   top: 35px;
@@ -245,37 +244,60 @@ a:visited {
 #wrapper {
   height: 100vh;
   width: 100%;
-  position: fixed;
+  position: relative;
 }
 
 #wrapper::before {
   content: "";
   position: fixed;
-  height: 100vh;
-  width: 100vh;
-  left: calc((100vw - 100vh) / 2);
-  background-color: rgba(0, 1, 2, 0.1);
-  -webkit-clip-path: polygon(50% 10%, 89% 32.5%, 89% 67.5%, 50% 90%, 11% 67.5%, 11% 32.5%);
-          clip-path: polygon(50% 10%, 89% 32.5%, 89% 67.5%, 50% 90%, 11% 67.5%, 11% 32.5%);
-}
-
-#wrapper::after {
-  content: "";
-  position: absolute;
-  top: 12.5px;
-  left: calc(((100vw - 100vh) / 2) + 12.5px);
-  height: calc(100vh - 25px);
-  width: calc(100vh - 25px);
-  z-index: -1;
-  background-color: rgba(95, 141, 213, 0.2);
-  -webkit-clip-path: polygon(50% 10%, 89% 32.5%, 89% 67.5%, 50% 90%, 11% 67.5%, 11% 32.5%);
-          clip-path: polygon(50% 10%, 89% 32.5%, 89% 67.5%, 50% 90%, 11% 67.5%, 11% 32.5%);
+  height: 80vh;
+  width: 80vh;
+  top: 10vh;
+  left: calc((100vw - 80vh) / 2);
+  background-color: rgba(6, 12, 22, 0.4);
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 #wrapper .pages {
-  height: 100vh;
   width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#wrapper .pages::before {
+  content: "";
+  position: fixed;
+  top: calc(10vh + 12px);
+  left: calc(((100vw - 80vh) / 2) + 12px);
+  height: calc(80vh - 24px);
+  width: calc(80vh - 24px);
+  background-color: rgba(95, 141, 213, 0.2);
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+#wrapper .pages .page {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  opacity: 0;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+#wrapper .pages .page.show {
+  top: 0;
+  opacity: 1;
+}
+
+#wrapper .pages .page footer {
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  left: 0;
+  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,21 +311,6 @@ a:visited {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#wrapper .pages .page {
-  position: absolute;
-  height: 100vh;
-  width: 100vh;
-  top: -100%;
-  opacity: 0;
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-}
-
-#wrapper .pages .page.show {
-  top: 0;
-  opacity: 1;
 }
 
 #wrapper .pages #home {
@@ -356,25 +363,99 @@ a:visited {
   }
 }
 
-#wrapper footer {
-  width: 100%;
-  height: 10vh;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+#wrapper .pages #about {
+  padding: 90px 50px 0px 50px;
+  color: #FFFFFF;
+}
+
+#wrapper .pages #about h1 {
+  text-align: start;
+  margin: 0;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+#wrapper .pages #about h2 {
+  text-align: start;
+  margin: 0;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+#wrapper .pages #about .about-infos {
+  height: 100%;
+  padding-top: 2rem;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 30px;
+      grid-template-areas: 'bioimage bio bio'  'school1 school2 school3';
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+#wrapper .pages #about .about-infos .about-portrait-wrp {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: bioimage;
+  width: 200px;
+  height: 200px;
+  padding: 4px;
+  margin: auto;
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: #FFFFFF;
+}
+
+#wrapper .pages #about .about-infos .about-portrait-wrp .about-portrait {
+  width: 192px;
+  height: 192px;
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-image: url("../images/self_portrait.jpg");
+  background-size: cover;
+  background-position: 50% 0%;
+}
+
+#wrapper .pages #about .about-infos .bio {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: bio;
+  font-size: 1.5rem;
+  text-align: start;
+  margin: auto;
+}
+
+#wrapper .pages #about .about-infos .bio h3 {
+  margin-bottom: 0.5rem;
+}
+
+#wrapper .pages #about .about-infos .schools {
+  padding: 0.5rem;
+  text-align: start;
+  margin: auto;
+}
+
+#wrapper .pages #about .about-infos .school-1 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: school1;
+}
+
+#wrapper .pages #about .about-infos .school-2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: school2;
+}
+
+#wrapper .pages #about .about-infos .school-3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: school3;
+}
+
+#wrapper .pages #about footer {
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
@@ -409,23 +490,19 @@ a:visited {
     font-size: 20px;
   }
   #wrapper::before {
-    height: 100vw;
-    width: 100vw;
-    top: calc((100vh - 100vw)/2);
-    left: 0;
+    height: 80vw;
+    width: 80vw;
+    top: calc((100vh - 80vw)/2);
+    left: 10vw;
   }
-  #wrapper::after {
-    height: calc(100vw - 25px);
-    width: calc(100vw - 25px);
-    top: calc(((100vh - 100vw)/2) + 12.5px);
-    left: 12.5px;
+  #wrapper .pages::before {
+    height: calc(80vw - 25px);
+    width: calc(80vw - 25px);
+    top: calc(((100vh - 80vw)/2) + 12.5px);
+    left: calc(10vw + 12.5px);
   }
   #wrapper .pages .page {
-    width: 100vw;
-    height: 100vw;
-  }
-  #wrapper .pages .page.show {
-    top: calc((100vh - 100vw) / 2);
+    width: 100%;
   }
   #wrapper .pages #home h1 {
     font-size: 3rem;
@@ -435,15 +512,27 @@ a:visited {
     height: 2rem;
     font-size: 2rem;
   }
+  #wrapper .pages #about .about-infos {
+        grid-template-areas: 'bioimage' 'bio' 'school1' 'school2' 'school3';
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 500px) {
-  #wrapper .pages #home h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  #wrapper .pages #home div {
-    height: 1rem;
-    font-size: 1rem;
-  }
+  /*#wrapper {
+    .pages {
+      #home {
+        h1 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        div {
+          height: 1rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }*/
 }
