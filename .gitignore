@@ -2,4 +2,3 @@
 /dist/images/logo/*.ai
 /.vscode/settings.json
 /node_modules
-/dist/scss
