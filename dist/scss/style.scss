@@ -130,17 +130,15 @@
         padding-top: 2rem;
         display: grid;
         grid-gap: 30px;
-        grid-template-areas: 
-          'bioimage bio bio' 
-          'school1 school2 school3';
+        grid-template-areas: 'bioimage bio bio' 'school1 school2 school3';
         grid-template-columns: repeat(3, 1fr);
     
         
     
         .about-portrait-wrp{
           grid-area: bioimage;
-          width: 200px;
-          height: 200px;
+          width: 250px;
+          height: 250px;
           padding: 4px;
           margin: auto;
           clip-path: polygon(
@@ -154,8 +152,8 @@
           background: $white;
     
           .about-portrait{
-              width: 192px;
-              height: 192px;
+              width: 242px;
+              height: 242px;
               clip-path: polygon(
                   50% 0%, 
                   100% 25%, 

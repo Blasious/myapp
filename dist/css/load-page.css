@@ -112,6 +112,10 @@ a:visited {
   width: 150px;
 }
 
+header {
+  display: none;
+}
+
 #wrapper {
   display: none;
   text-align: center;
