@@ -261,7 +261,7 @@ a:visited {
 
 #wrapper .pages {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 3rem);
   position: relative;
 }
 
@@ -280,33 +280,20 @@ a:visited {
 #wrapper .pages .page {
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 3rem);
   top: -100%;
   opacity: 0;
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
-  /*footer {
-        width: 100%;
-        height: 10vh;
-
-        position: absolute;
-        left: 0;
-        bottom: 0;
-
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-      }*/
 }
 
 #wrapper .pages .page.show {
   top: 0;
   opacity: 1;
+  position: relative;
 }
 
 #wrapper .pages #home {
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,15 +325,6 @@ a:visited {
   color: #FFFFFF;
 }
 
-#wrapper .pages #home.show ~ #footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  padding: 1rem;
-}
-
 @-webkit-keyframes setBlingBorder {
   from {
     border-right: 2px solid white;
@@ -366,9 +344,11 @@ a:visited {
 }
 
 #wrapper .pages #about {
-  margin-top: -100%;
-  padding: 90px 50px;
+  padding: 90px 50px 0px 50px;
   color: #FFFFFF;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 #wrapper .pages #about h1 {
@@ -456,20 +436,6 @@ a:visited {
   grid-area: school3;
 }
 
-#wrapper .pages #about.show {
-  position: relative;
-  margin-top: 0;
-}
-
-#wrapper .pages #about.show ~ #footer {
-  position: relative;
-  text-align: center;
-  padding: 1rem;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 #wrapper .pages #mywork {
   padding: 90px 50px 0px 50px;
   color: #FFFFFF;
@@ -490,12 +456,12 @@ a:visited {
 }
 
 #wrapper .pages #mywork .myworks {
-  margin-top: 2rem;
+  margin: 2rem 0;
   display: -ms-grid;
   display: grid;
-  grid-gap: 50px;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0px 50px;
+  -ms-grid-columns: auto auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto auto;
 }
 
 #wrapper .pages #mywork .myworks .work-item {
@@ -507,6 +473,10 @@ a:visited {
   background-color: #b99314;
 }
 
+#wrapper .pages #mywork .myworks .work-item:hover {
+  background-color: #0B172A;
+}
+
 #wrapper .pages #mywork .myworks .work-item .work {
   width: 100%;
   height: 100%;
@@ -514,6 +484,7 @@ a:visited {
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #0B172A;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transition: all 1s ease-out;
@@ -523,22 +494,583 @@ a:visited {
 #wrapper .pages #mywork .myworks .work-item .work1 {
   background-size: 90% auto;
   background-image: url("../images/ref1-logo.png");
-  background-color: #0B172A;
+}
+
+#wrapper .pages #mywork .myworks .work-item .work1:hover {
+  background-color: #FFFFFF;
+  background-image: url("../images/ref1-logo-inverse.png");
 }
 
 #wrapper .pages #mywork .myworks .work-item .work2 {
   background-size: 40% auto;
   background-image: url("../images/ref2-logo.png");
-  background-color: #0B172A;
 }
 
-#wrapper .pages #mywork.show ~ #footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
+#wrapper .pages #mywork .myworks .work-item .work2:hover {
+  background-color: #FFFFFF;
+  background-image: url("../images/ref2-logo-inverse.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item .work3 {
+  background-size: 40% auto;
+  background-image: url("../images/ref2-logo.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item .work3:hover {
+  background-color: #FFFFFF;
+  background-image: url("../images/ref2-logo-inverse.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item .work4 {
+  background-size: 40% auto;
+  background-image: url("../images/ref2-logo.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item .work4:hover {
+  background-color: #FFFFFF;
+  background-image: url("../images/ref2-logo-inverse.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item .work5 {
+  background-size: 40% auto;
+  background-image: url("../images/ref2-logo.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item .work5:hover {
+  background-color: #FFFFFF;
+  background-image: url("../images/ref2-logo-inverse.png");
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(1) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(2) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(3) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(4) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(5) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(6) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(7) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(8) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(9) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(10) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(11) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(12) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(13) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(14) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(15) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(16) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(17) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(18) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(19) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(20) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(21) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(22) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(23) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(24) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(25) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(26) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(27) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(28) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(29) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(30) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(31) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(32) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(33) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(34) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(35) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(36) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(37) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(38) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(39) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(40) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(41) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(42) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(43) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(44) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(45) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(46) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(47) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(48) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(49) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(50) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(51) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(52) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(53) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(54) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(55) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(56) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(57) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(58) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(59) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(60) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(61) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(62) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(63) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(64) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(65) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(66) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(67) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(68) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(69) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(70) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(71) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(72) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(73) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(74) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(75) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(76) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(77) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(78) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(79) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(80) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(81) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(82) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(83) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(84) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(85) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(86) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(87) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(88) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(89) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(90) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(91) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(92) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(93) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(94) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(95) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(96) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(97) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(98) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(99) {
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+}
+
+#wrapper .pages #mywork .myworks .work-item:nth-child(100) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+#wrapper #footer {
+  position: relative;
   padding: 1rem;
+  line-height: 1rem;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -594,6 +1126,9 @@ a:visited {
   #wrapper .pages #home div {
     height: 2rem;
     font-size: 2rem;
+  }
+  #wrapper .pages #about {
+    height: 100%;
   }
   #wrapper .pages #about .about-infos {
         grid-template-areas: 'bioimage' 'bio' 'school1' 'school2' 'school3';

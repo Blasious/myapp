@@ -20,7 +20,7 @@
 
   .pages {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 3rem);
     position: relative;
 
     &::before {
@@ -37,7 +37,7 @@
     .page {
       position: absolute;
       width: 100%;
-      height: 100%;
+      min-height: calc(100vh - 3rem);
       top: -100%;
       opacity: 0;
       @include easeOut(1s);
@@ -46,26 +46,11 @@
         //main css of class show
         top: 0;
         opacity: 1;
+        position: relative;
       }
-
-      /*footer {
-        width: 100%;
-        height: 10vh;
-
-        position: absolute;
-        left: 0;
-        bottom: 0;
-
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-      }*/
     }
 
     #home {
-      height: 100vh;
-
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
@@ -86,15 +71,6 @@
         color: $white;
       }
 
-      &.show ~ #footer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        text-align: center;
-        padding: 1rem;
-      }
-
       @keyframes setBlingBorder {
         from {
           border-right: 2px solid white;
@@ -106,9 +82,9 @@
     }
 
     #about {
-      margin-top: -100%;
-      padding: 90px 50px;
+      padding: 90px 50px 0px 50px;
       color: $white;
+      height: max-content;
 
       h1 {
         text-align: start;
@@ -179,21 +155,6 @@
           grid-area: school3;
         }
       }
-
-      &.show {
-        //needed to change because it is a relative element
-        position: relative;
-        margin-top: 0;
-
-        &~ #footer {
-          position: relative;
-          text-align: center;
-          padding: 1rem;
-          bottom: 0;
-          left: 0;
-          right: 0;
-        }
-      }
     }
 
     #mywork {
@@ -215,10 +176,10 @@
       }
 
       .myworks {
-        margin-top: 2rem;
+        margin: 2rem 0;
         display: grid;
-        grid-gap: 50px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0px 50px;
+        grid-template-columns: auto auto auto auto auto auto;
 
         .work-item {
           width: 100%;
@@ -227,12 +188,17 @@
           clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
           background-color: $yellow;
 
+          &:hover{
+            background-color: $blue;
+          }
+
           .work {
             width: 100%;
             height: 100%;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             background-position: center;
             background-repeat: no-repeat;
+            background-color: $blue;
             transform-style: preserve-3d;
             @include easeOut(1s);
           }
@@ -240,26 +206,75 @@
           .work1 {
             background-size: 90% auto;
             background-image: url("../images/ref1-logo.png");
-            background-color: $blue;
+
+            &:hover{
+              background-color: $white;
+              background-image: url("../images/ref1-logo-inverse.png");
+            }
           }
 
           .work2 {
             background-size: 40% auto;
             background-image: url("../images/ref2-logo.png");
-            background-color: $blue;
+
+            &:hover{
+              background-color: $white;
+              background-image: url("../images/ref2-logo-inverse.png");
+            }
+          }
+
+          .work3 {
+            background-size: 40% auto;
+            background-image: url("../images/ref2-logo.png");
+
+            &:hover{
+              background-color: $white;
+              background-image: url("../images/ref2-logo-inverse.png");
+            }
+          }
+
+          .work4 {
+            background-size: 40% auto;
+            background-image: url("../images/ref2-logo.png");
+
+            &:hover{
+              background-color: $white;
+              background-image: url("../images/ref2-logo-inverse.png");
+            }
+          }
+
+          .work5 {
+            background-size: 40% auto;
+            background-image: url("../images/ref2-logo.png");
+
+            &:hover{
+              background-color: $white;
+              background-image: url("../images/ref2-logo-inverse.png");
+            }
+          }
+
+          //set every 4th grid gap 2/4
+          @for $nth from 1 through 100{
+            @if($nth%4 == 0){
+              &:nth-child(#{$nth}){
+                grid-column: 2/4;
+              }
+            }@else{
+              &:nth-child(#{$nth}){
+                grid-column-end: span 2;
+              }
+            }
           }
         }
       }
-
-      &.show ~ #footer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        text-align: center;
-        padding: 1rem;
-      }
     }
+  }
+
+  #footer{
+    position: relative;
+    padding: 1rem;
+    line-height: 1rem;
+    font-size: 1rem;
   }
 }
 
